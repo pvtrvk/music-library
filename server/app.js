@@ -3,9 +3,16 @@ const hbs = require('express-handlebars');
 
 const { OK } = require('http-status-codes');
 
+const router = require('./router');
+
 const { layoutsDir, partialsDir, viewsDir } = require('./config/paths');
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}));
 
 app.engine('hbs', hbs({
     extname: 'hbs',
@@ -16,9 +23,6 @@ app.engine('hbs', hbs({
 
 app.set('view engine', 'hbs');
 app.set('views', viewsDir);
-
-app.get('/', (req, res, next) => {
-    res.status(OK).render('homepage/index');
-});
+app.use('/', router);
 
 module.exports = app;
