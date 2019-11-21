@@ -1,4 +1,5 @@
 const { BAD_REQUEST, OK } = require('http-status-codes');
+const { isEmpty } = require('../helpers/dataParsers');
 
 const renderLoginPage = (req, res, next) => {
     try {
@@ -7,12 +8,6 @@ const renderLoginPage = (req, res, next) => {
         next(e);
     }
 };
-
-const isUndefined = variable =>
-    typeof variable === 'undefined';
-
-const isEmpty = variable =>
-    isUndefined(variable) || variable === '' || variable == null;
 
 const validateLogin = (req, res, next) => {
     const { login, passwd } = req.body;
