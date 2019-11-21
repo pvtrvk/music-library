@@ -9,6 +9,11 @@ const { layoutsDir, partialsDir, viewsDir } = require('./config/paths');
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}));
+
 app.engine('hbs', hbs({
     extname: 'hbs',
     defaultLayout: 'layout',
