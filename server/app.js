@@ -3,26 +3,32 @@ const hbs = require('express-handlebars');
 
 const { OK } = require('http-status-codes');
 
-const router = require('./router');
-
 const { layoutsDir, partialsDir, viewsDir } = require('./config/paths');
 
-const app = express();
+const { errorMiddleware } = require('./errors/error.middleware');
 
-app.use(express.json());
-app.use(express.urlencoded({
-    extended: true
-}));
+module.exports = (db) => {
+    const router = require('./router')(db);
+    const app = express();
 
-app.engine('hbs', hbs({
-    extname: 'hbs',
-    defaultLayout: 'layout',
-    layoutsDir: layoutsDir,
-    partialsDir: partialsDir
-}));
+    app.use(express.json());
+    app.use(express.urlencoded({
+        extended: true
+    }));
 
-app.set('view engine', 'hbs');
-app.set('views', viewsDir);
-app.use('/', router);
+    app.engine('hbs', hbs({
+        extname: 'hbs',
+        defaultLayout: 'layout',
+        layoutsDir: layoutsDir,
+        partialsDir: partialsDir
+    }));
 
-module.exports = app;
+    app.set('view engine', 'hbs');
+    app.set('views', viewsDir);
+    app.use('/', router);
+
+    app.use(errorMiddleware);
+
+
+    return app;
+};

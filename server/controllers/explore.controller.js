@@ -1,9 +1,16 @@
 const { OK } = require('http-status-codes');
 
-const renderExplorePage = (req, res, next) => {
-    res.status(OK).render('explore/index');
-};
+module.exports = (db) => {
 
-module.exports = {
-    renderExplorePage
+    const { getAllSongs } = require('../repositories/songs.repository')(db);
+
+    const renderExplorePage = async (req, res, next) => {
+        const songs = await getAllSongs();
+
+        res.status(OK).render('explore/index', { songs });
+    };
+
+    return {
+        renderExplorePage
+    }
 };

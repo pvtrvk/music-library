@@ -1,4 +1,4 @@
-const MONGO_URL = 'http://127.0.0.1/27017/music-library';
+const MONGO_URL = 'mongodb://127.0.0.1/27017';
 
 module.exports = {
     MONGO_URL
