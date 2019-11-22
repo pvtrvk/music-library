@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "node server/server.js",
-    "dev": "nodemon server/server.js"
+    "dev": "nodemon server/server.js",
+    "css": "sass --watch client/sass/index.scss client/css/index.css"
   },
   "devDependencies": {
     "mocha": "^6.2.2",
@@ -12,6 +13,7 @@
     "express-handlebars": "^3.1.0",
     "hbs": "^4.0.6",
     "http-status-codes": "^1.4.0",
-    "mongodb": "^3.3.4"
+    "mongodb": "^3.3.4",
+    "sass": "^1.23.7"
   }
 }
