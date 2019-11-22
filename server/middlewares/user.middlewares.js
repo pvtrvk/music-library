@@ -1,11 +1,11 @@
 const { BAD_REQUEST, OK } = require('http-status-codes');
 
-const { areCredentialsValid } = require('../validators/credentials.validator');
+const { isCredentialsStructureValid } = require('../validators/credentials.validator');
 
-const validateCredentials = (req, res, next) => {
+const validateCredentials = async (req, res, next) => {
     const { login, passwd } = req.body;
 
-    if (!areCredentialsValid({ login, passwd })) {
+    if (!isCredentialsStructureValid({ login, passwd })) {
         res.status(BAD_REQUEST).redirect('/login?b=-1');
         // next(new Error('Bad request'));
         return;

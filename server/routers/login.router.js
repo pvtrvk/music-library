@@ -1,4 +1,4 @@
-const loginRouter = new require('express').Router();
+const loginRouter = require('express').Router();
 
 const { renderLoginPage } = require('../controllers/login.controller');
 

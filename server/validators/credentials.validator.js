@@ -1,9 +1,9 @@
 const { isEmpty } = require('../helpers/dataParsers');
 
-const areCredentialsValid = ({ login, passwd }) => {
+const isCredentialsStructureValid = ({ login, passwd }) => {
     return !(isEmpty(login) || isEmpty(passwd));
 };
 
 module.exports = {
-    areCredentialsValid
+    isCredentialsStructureValid
 };

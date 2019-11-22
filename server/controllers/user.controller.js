@@ -1,11 +1,17 @@
 const { OK } = require('http-status-codes');
+const { loginResponse } = require('../responses/user.responses');
 
-const renderUserPage = (req, res, next) => {
-    const { login } = req.body;
+module.exports = (db) => {
 
-    res.status(OK).render('user/index', { login });
-};
+    const { findUser } = require('../repositories/users.repository')(db);
 
-module.exports = {
-    renderUserPage
+    return {
+        async validateCredentialsInDB (req, res, next) {
+            const { login, passwd } = req.body;
+
+            const areCredentialsValid = !!await findUser({login, passwd});
+
+            loginResponse({ areCredentialsValid, login }, res);
+        }
+    };
 };
