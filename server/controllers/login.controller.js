@@ -1,26 +1,16 @@
-const { BAD_REQUEST, OK } = require('http-status-codes');
-const { isEmpty } = require('../helpers/dataParsers');
+const { OK } = require('http-status-codes');
 
 const renderLoginPage = (req, res, next) => {
-    try {
-        res.status(OK).render('login/index');
-    } catch (e) {
-        next(e);
-    }
-};
 
-const validateLogin = (req, res, next) => {
-    const { login, passwd } = req.body;
-
-    if (isEmpty(login) || isEmpty(passwd)) {
-        res.status(BAD_REQUEST).redirect('/login');
-        return;
+    let message = '';
+    const isRedirected = req.query.valid;
+    if (isRedirected) {
+        message = 'Bad Request!';
     }
 
-    res.status(OK).render('user/index', { login });
+    res.status(OK).render('login/index', { message });
 };
 
 module.exports = {
-    renderLoginPage,
-    validateLogin
+    renderLoginPage
 };
