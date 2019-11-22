@@ -3,7 +3,7 @@ const { OK } = require('http-status-codes');
 const renderLoginPage = (req, res, next) => {
 
     let message = '';
-    const isRedirected = req.query.valid;
+    const isRedirected = req.query.b;
     if (isRedirected) {
         message = 'Bad Request!';
     }

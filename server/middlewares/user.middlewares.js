@@ -6,7 +6,7 @@ const validateCredentials = (req, res, next) => {
     const { login, passwd } = req.body;
 
     if (!areCredentialsValid({ login, passwd })) {
-        res.status(BAD_REQUEST).redirect('/login?valid=false');
+        res.status(BAD_REQUEST).redirect('/login?b=-1');
         // next(new Error('Bad request'));
         return;
     }
