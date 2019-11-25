@@ -1,0 +1,38 @@
+.news {
+
+  padding: 2rem 0;
+
+  font-size: 1.2rem;
+
+  @include breakpoint(md) {
+    width: calc(50% - 5px);
+  }
+
+  &__list {
+    list-style-type: none;
+    padding-left: 1rem;
+  }
+
+  &__element {
+    padding: .6rem 0;
+  }
+
+  &__heading {
+    border-top: .1rem solid $secondary;
+    font-family: $baskervville;
+
+    padding: 1rem 0 .6rem;
+  }
+
+  &__title {
+    margin: 0 0 .4rem;
+
+    font-weight: 600;
+  }
+
+  &__desc {
+    &::first-line {
+      text-indent: 1rem;
+    }
+  }
+}

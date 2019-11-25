@@ -17,17 +17,56 @@
   }
 }
 
+body {
+  color: black;
+}
+
 .header {
   background-color: white;
   width: 100%;
+  margin-top: 5rem;
 }
 .header__title {
+  border-top: 0.2rem solid black;
+  display: block;
+  position: relative;
+  width: auto;
   font-family: "Baskervville", serif;
+  letter-spacing: 0.2rem;
 }
 @media (min-width: 1440px) {
   .header__title {
-    font-size: 6rem;
+    font-size: 5rem;
   }
+}
+
+.news {
+  padding: 2rem 0;
+  font-size: 1.2rem;
+}
+@media (min-width: 1024px) {
+  .news {
+    width: calc(50% - 5px);
+  }
+}
+.news__list {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+.news__element {
+  padding: 0.6rem 0;
+}
+.news__heading {
+  border-top: 0.1rem solid black;
+  font-family: "Baskervville", serif;
+  padding: 1rem 0 0.6rem;
+}
+.news__title {
+  margin: 0 0 0.4rem;
+  font-weight: 600;
+}
+.news__desc::first-line {
+  text-indent: 1rem;
 }
 
 /*# sourceMappingURL=index.css.map */
