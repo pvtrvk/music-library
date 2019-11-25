@@ -21,6 +21,11 @@ body {
   color: black;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 .header {
   background-color: white;
   width: 100%;
@@ -67,6 +72,18 @@ body {
 }
 .news__desc::first-line {
   text-indent: 1rem;
+}
+
+.slider {
+  width: 100%;
+}
+.slider__element {
+  position: relative;
+}
+.slider__image {
+  width: 100%;
+  max-width: 100%;
+  max-height: 700px;
 }
 
 /*# sourceMappingURL=index.css.map */
