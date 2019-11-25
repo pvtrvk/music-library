@@ -1,11 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Baskervville:400,400i&display=swap&subset=latin-ext");
 * {
   margin: 0;
   padding: 0;
 }
 
+@media (min-width: 1024px) {
+  .container {
+    margin: 0 auto;
+    max-width: 960px;
+  }
+}
+@media (min-width: 1440px) {
+  .container {
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+}
+
 .header {
-  background-color: gray;
+  background-color: white;
   width: 100%;
+}
+.header__title {
+  font-family: "Baskervville", serif;
+}
+@media (min-width: 1440px) {
+  .header__title {
+    font-size: 6rem;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

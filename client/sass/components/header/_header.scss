@@ -1,4 +1,13 @@
 .header {
   background-color: $primary;
   width: 100%;
+
+  &__title {
+
+    font-family: $baskervville;
+
+    @include breakpoint(lg) {
+      font-size: 6rem;
+    }
+  }
 }

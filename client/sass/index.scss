@@ -1,3 +1,7 @@
 @import './config/config';
 @import './variables/vars';
+@import './config/mixins';
+
+@import './layout/layout';
+@import './config/global';
 @import './components/components';
