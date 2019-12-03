@@ -1,9 +1,12 @@
+const { isNullOrUndefined } = require('../helpers/dataParsers');
+
 module.exports = (db) => {
     const users = db.collection('users');
     const passwords = db.collection('passwords');
 
-    const getUserId = (login) => {
-        return users.findOne({ username: login }, { projection: { "_id": 0, "userId": 1 }})
+    const getUserId = async (login) => {
+        const userId = await users.findOne({ username: login }, { projection: { "_id": 0, "userId": 1 }});
+        return isNullOrUndefined(userId) ? { userId: null } : userId;
     };
 
     return {
