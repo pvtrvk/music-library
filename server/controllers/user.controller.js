@@ -9,7 +9,7 @@ module.exports = (db) => {
         async validateCredentialsInDB (req, res, next) {
             const { login, passwd } = req.body;
 
-            const areCredentialsValid = !!await findUser({login, passwd});
+            const areCredentialsValid = !!await findUser({ login, passwd });
 
             loginResponse({ areCredentialsValid, login }, res);
         }

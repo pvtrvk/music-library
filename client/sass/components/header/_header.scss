@@ -4,6 +4,12 @@
 
   margin-top: 5rem;
 
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__title {
 
     border-top: .2rem solid $secondary;
@@ -19,5 +25,13 @@
     @include breakpoint(lg) {
       font-size: 5rem;
     }
+  }
+
+  &__button {
+    color: black;
+    text-decoration: none;
+
+    font-family: $baskervville;
+    font-size: 1rem;
   }
 }

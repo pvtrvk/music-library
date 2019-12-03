@@ -31,6 +31,11 @@ img {
   width: 100%;
   margin-top: 5rem;
 }
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .header__title {
   border-top: 0.2rem solid black;
   display: block;
@@ -43,6 +48,12 @@ img {
   .header__title {
     font-size: 5rem;
   }
+}
+.header__button {
+  color: black;
+  text-decoration: none;
+  font-family: "Baskervville", serif;
+  font-size: 1rem;
 }
 
 .news {
