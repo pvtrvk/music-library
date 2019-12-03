@@ -10,7 +10,7 @@ module.exports = (db) => {
     };
 
     return {
-
+        getUserId,
         async findUser({ login, passwd }) {
             const { userId } = await getUserId(login);
             return passwords.findOne({ userId, passwd }, { projection: { _id: 0 }});
