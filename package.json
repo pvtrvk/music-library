@@ -3,7 +3,9 @@
     "start": "node server/server.js",
     "dev": "nodemon server/server.js",
     "css": "sass --watch client/sass/index.scss client/css/index.css",
-    "test:unit": "mocha --exit test/unit"
+    "test:unit": "mocha --exit test/unit",
+    "test:component": "mocha --exit test/component",
+    "test": "npm-run-all test:*"
   },
   "devDependencies": {
     "jest": "^24.9.0",
@@ -16,6 +18,7 @@
     "hbs": "^4.0.6",
     "http-status-codes": "^1.4.0",
     "mongodb": "^3.3.4",
+    "npm-run-all": "^4.1.5",
     "sass": "^1.23.7"
   }
 }

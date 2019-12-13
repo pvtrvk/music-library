@@ -11,6 +11,11 @@ const renderLoginPage = (req, res, next) => {
     res.status(OK).render('login/index', { message });
 };
 
+const renderRegisterPage = (req, res, next) => {
+    res.status(OK).render('register/index');
+};
+
 module.exports = {
-    renderLoginPage
+    renderLoginPage,
+    renderRegisterPage
 };

@@ -1,8 +1,7 @@
 const assert = require('assert');
 
-
 describe('User repository', async () => {
-    it('returns null if user does not exists', async () => {
+    it('returns null if user does not exists once findUser is called', async () => {
         const db = await require('../../server/database/connection')();
         const { findUser } = require('../../server/repositories/users.repository')(db);
 
@@ -11,7 +10,5 @@ describe('User repository', async () => {
 
         const findUserOutput = await findUser({ login, passwd });
         assert.deepStrictEqual(findUserOutput, null);
-    })
-
-
+    });
 });
