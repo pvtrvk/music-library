@@ -1,11 +1,11 @@
 const express = require('express');
 const hbs = require('express-handlebars');
 
-const { OK } = require('http-status-codes');
+const {OK} = require('http-status-codes');
 
-const { layoutsDir, partialsDir, viewsDir, clientDir } = require('./config/paths');
+const {layoutsDir, partialsDir, viewsDir, clientDir} = require('./config/paths');
 
-const { errorMiddleware } = require('./errors/error.middleware');
+const {errorMiddleware} = require('./errors/error.middleware');
 
 module.exports = (db) => {
     const router = require('./router')(db);

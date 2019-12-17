@@ -1,0 +1,1 @@
+{ "_id": 0, "newsId": "0", "heading": "Taylor Swift to win Artist of the Decade award", "textId": 0 }

@@ -1,4 +1,4 @@
-const { OK } = require('http-status-codes');
+const {OK} = require('http-status-codes');
 
 const renderHomepage = (req, res, next) => {
     try {

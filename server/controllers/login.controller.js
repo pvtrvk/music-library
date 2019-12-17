@@ -1,4 +1,4 @@
-const { OK } = require('http-status-codes');
+const {OK} = require('http-status-codes');
 
 const renderLoginPage = (req, res, next) => {
 
@@ -8,14 +8,21 @@ const renderLoginPage = (req, res, next) => {
         message = 'Bad Request!';
     }
 
-    res.status(OK).render('login/index', { message });
+    res.status(OK).render('login/index', {message});
 };
 
 const renderRegisterPage = (req, res, next) => {
     res.status(OK).render('register/index');
 };
 
+const registerUser = (req, res, next) => {
+    const {login, passwd} = req.body;
+
+    // await ({ logi })
+};
+
 module.exports = {
+    registerUser,
     renderLoginPage,
     renderRegisterPage
 };

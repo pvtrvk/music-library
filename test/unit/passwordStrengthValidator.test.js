@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { isPasswordStrongEnough } = require('../../server/validators/credentials.validator');
+const {isPasswordStrongEnough} = require('../../server/validators/credentials.validator');
 
 describe('Password Strength Validator', () => {
 
@@ -25,17 +25,24 @@ describe('Password Strength Validator', () => {
     });
 
     it('should return false when passwd doesn\'t contain lowercase', () => {
-       const noLowercase = 'SUPERSTRONG123456';
-       const isPasswordStrong = isPasswordStrongEnough(noLowercase);
+        const noLowercase = 'SUPERSTRONG123456';
+        const isPasswordStrong = isPasswordStrongEnough(noLowercase);
 
-       assert.deepStrictEqual(isPasswordStrong, false);
+        assert.deepStrictEqual(isPasswordStrong, false);
     });
 
     it('should return false when passwd contains space char', () => {
-       const withSpace = 'Definitely Bad12345';
-       const isPasswordStrong = isPasswordStrongEnough(withSpace);
+        const withSpace = 'Definitely Bad12345';
+        const isPasswordStrong = isPasswordStrongEnough(withSpace);
 
-       assert.deepStrictEqual(isPasswordStrong, false);
+        assert.deepStrictEqual(isPasswordStrong, false);
     });
+
+    it('should return true when passwd meets requirements', () => {
+        const strongPassword = 'GoodPassword123';
+        const isPasswordStrong = isPasswordStrongEnough(strongPassword);
+
+        assert.deepStrictEqual(isPasswordStrong, true);
+    })
 
 });

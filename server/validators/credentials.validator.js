@@ -1,6 +1,6 @@
-const { isEmpty, isString } = require('../helpers/dataParsers');
+const {isEmpty, isString} = require('../helpers/dataParsers');
 
-const isCredentialsStructureValid = ({ login, passwd }) => {
+const isCredentialsStructureValid = ({login, passwd}) => {
     return !(isEmpty(login) || isEmpty(passwd));
 };
 
