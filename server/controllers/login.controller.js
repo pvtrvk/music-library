@@ -18,7 +18,9 @@ const renderRegisterPage = (req, res, next) => {
 const registerUser = (req, res, next) => {
     const {login, passwd} = req.body;
 
-    // await ({ logi })
+    // await insertUserIntoDB({ login, passwd });
+
+    res.status(200).render('login/index', { message: 'User successfully created!', isPositive: true });
 };
 
 module.exports = {
