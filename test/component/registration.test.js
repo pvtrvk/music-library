@@ -15,10 +15,11 @@ describe('Registration component', async () => {
     it('should return BAD REQUEST status when given bad credentials', async () => {
         const login = 'BAD LOGIN',
             passwd = 'bad password';
-        
+
         await request
             .post(REGISTRATION_URL)
             .send({ login, passwd })
+            .set('Content-Type', 'application/json')
             .expect(BAD_REQUEST);
     });
 
@@ -31,9 +32,10 @@ describe('Registration component', async () => {
         await request
             .post(REGISTRATION_URL)
             .send(credentials)
+            .set('Content-Type', 'application/json')
             .expect(BAD_REQUEST)
     });
-  
+
     it('should return CONFLICT status when user-to-be login already exists', async () => {
         const credentials = {
             login: 'NewUser',
@@ -45,6 +47,7 @@ describe('Registration component', async () => {
         await request
             .post(REGISTRATION_URL)
             .send(credentials)
+            .set('Content-Type', 'application/json')
             .expect(CONFLICT);
 
         await removeUserFromDB(credentials);
@@ -58,6 +61,7 @@ describe('Registration component', async () => {
         await request
             .post(REGISTRATION_URL)
             .send(credentials)
+            .set('Content-Type', 'application/json')
             .expect(OK);
 
         await removeUserFromDB(credentials);

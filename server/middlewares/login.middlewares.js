@@ -1,8 +1,6 @@
-const { BAD_REGISTER_URL } = require('../config/URLs');
+const { REGISTER_URL } = require('../config/URLs');
 const { BAD_REQUEST } = require('http-status-codes');
 const { isCredentialsStructureValid, isPasswordStrongEnough } = require('../validators/credentials.validator');
-
-
 
 module.exports = (db) => {
     const { findUserByUsername } = require('../repositories/users.repository')(db);
@@ -19,7 +17,7 @@ module.exports = (db) => {
             || !isPasswordStrongEnough(passwd)
             || await doesUserAlreadyExist(username)
         ) {
-            res.status(BAD_REQUEST).redirect(BAD_REGISTER_URL);
+            res.status(BAD_REQUEST).render('register/index');
         } else {
             next();
         }
