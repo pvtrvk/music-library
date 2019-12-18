@@ -1,100 +1,114 @@
 @import url("https://fonts.googleapis.com/css?family=Baskervville:400,400i&display=swap&subset=latin-ext");
+
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 @media (min-width: 1024px) {
-  .container {
-    margin: 0 auto;
-    max-width: 960px;
-  }
+    .container {
+        margin: 0 auto;
+        max-width: 960px;
+    }
 }
+
 @media (min-width: 1440px) {
-  .container {
-    margin: 0 auto;
-    max-width: 1440px;
-  }
+    .container {
+        margin: 0 auto;
+        max-width: 1440px;
+    }
 }
 
 body {
-  color: black;
+    color: black;
 }
 
 img {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 .header {
-  background-color: white;
-  width: 100%;
-  margin-top: 5rem;
+    background-color: white;
+    width: 100%;
+    margin-top: 5rem;
 }
+
 .header__container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .header__title {
-  border-top: 0.2rem solid black;
-  display: block;
-  position: relative;
-  width: auto;
-  font-family: "Baskervville", serif;
-  letter-spacing: 0.2rem;
+    border-top: 0.2rem solid black;
+    display: block;
+    position: relative;
+    width: auto;
+    font-family: "Baskervville", serif;
+    letter-spacing: 0.2rem;
 }
+
 @media (min-width: 1440px) {
-  .header__title {
-    font-size: 5rem;
-  }
+    .header__title {
+        font-size: 5rem;
+    }
 }
+
 .header__button {
-  color: black;
-  text-decoration: none;
-  font-family: "Baskervville", serif;
-  font-size: 1rem;
+    color: black;
+    text-decoration: none;
+    font-family: "Baskervville", serif;
+    font-size: 1rem;
 }
 
 .news {
-  padding: 2rem 0;
-  font-size: 1.2rem;
+    padding: 2rem 0;
+    font-size: 1.2rem;
 }
+
 @media (min-width: 1024px) {
-  .news {
-    width: calc(50% - 5px);
-  }
+    .news {
+        width: calc(50% - 5px);
+    }
 }
+
 .news__list {
-  list-style-type: none;
-  padding-left: 1rem;
+    list-style-type: none;
+    padding-left: 1rem;
 }
+
 .news__element {
-  padding: 0.6rem 0;
+    padding: 0.6rem 0;
 }
+
 .news__heading {
-  border-top: 0.1rem solid black;
-  font-family: "Baskervville", serif;
-  padding: 1rem 0 0.6rem;
+    border-top: 0.1rem solid black;
+    font-family: "Baskervville", serif;
+    padding: 1rem 0 0.6rem;
 }
+
 .news__title {
-  margin: 0 0 0.4rem;
-  font-weight: 600;
+    margin: 0 0 0.4rem;
+    font-weight: 600;
 }
+
 .news__desc::first-line {
-  text-indent: 1rem;
+    text-indent: 1rem;
 }
 
 .slider {
-  width: 100%;
+    width: 100%;
 }
+
 .slider__element {
-  position: relative;
+    position: relative;
 }
+
 .slider__image {
-  width: 100%;
-  max-width: 100%;
-  max-height: 700px;
+    width: 100%;
+    max-width: 100%;
+    max-height: 700px;
 }
 
 /*# sourceMappingURL=index.css.map */

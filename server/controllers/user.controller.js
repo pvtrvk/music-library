@@ -1,16 +1,16 @@
-const { loginResponse } = require('../responses/user.responses');
+const {loginResponse} = require('../responses/user.responses');
 
 module.exports = (db) => {
 
-    const { findUser } = require('../repositories/users.repository')(db);
+    const {findUser} = require('../repositories/users.repository')(db);
 
     return {
-        async DBAuthentication (req, res, next) {
-            const { login, passwd } = req.body;
+        async DBAuthentication(req, res, next) {
+            const {login, passwd} = req.body;
 
-            const areCredentialsValid = Boolean(await findUser({ login, passwd }));
+            const areCredentialsValid = Boolean(await findUser({login, passwd}));
 
-            loginResponse({ areCredentialsValid, login }, res);
+            loginResponse({areCredentialsValid, login}, res);
         }
     };
 };

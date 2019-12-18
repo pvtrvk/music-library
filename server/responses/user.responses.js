@@ -1,12 +1,12 @@
-const { BAD_REQUEST, OK } = require('http-status-codes');
+const {BAD_REQUEST, OK} = require('http-status-codes');
 
-const renderUserPage = ({ login }, res) => {
-    res.status(OK).render('user/index', { login });
+const renderUserPage = ({login}, res) => {
+    res.status(OK).render('user/index', {login});
 }
 
-const loginResponse = ({ areCredentialsValid, login }, res) => {
+const loginResponse = ({areCredentialsValid, login}, res) => {
     if (areCredentialsValid) {
-        renderUserPage({ login }, res);
+        renderUserPage({login}, res);
     } else {
         res.status(BAD_REQUEST).redirect('/login?b=-1');
     }
