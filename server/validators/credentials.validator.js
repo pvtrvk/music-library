@@ -1,7 +1,10 @@
 const {isEmpty, isString} = require('../helpers/dataParsers');
 
-const isCredentialsStructureValid = ({login, passwd}) => {
-    return !(isEmpty(login) || isEmpty(passwd));
+const doesContainOnlyAllowedChars = string =>
+    isString(string) && (/[A-Za-z0-9]/).test(string);
+
+const isCredentialsStructureValid = ({username, passwd}) => {
+    return !(isEmpty(username) || isEmpty(passwd)) && doesContainOnlyAllowedChars(username);
 };
 
 const hasUpperCase = string =>
@@ -22,6 +25,7 @@ const isPasswordStrongEnough = (passwd) => {
 };
 
 module.exports = {
+    doesContainOnlyAllowedChars,
     isCredentialsStructureValid,
     isPasswordStrongEnough
 };

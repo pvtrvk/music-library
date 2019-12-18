@@ -1,17 +1,32 @@
-const { BAD_LOGIN_URL } = require('../config/URLs');
+const { BAD_REGISTER_URL } = require('../config/URLs');
 const { BAD_REQUEST } = require('http-status-codes');
-const { isPasswordStrongEnough } = require('../validators/credentials.validator');
+const { isCredentialsStructureValid, isPasswordStrongEnough } = require('../validators/credentials.validator');
 
-const validatePasswordStrength = (req, res, next) => {
-    const { passwd } = req.body;
 
-    if (!isPasswordStrongEnough(passwd)) {
-        res.status(BAD_REQUEST).redirect(BAD_LOGIN_URL)
+
+module.exports = (db) => {
+    const { findUserByUsername } = require('../repositories/users.repository')(db);
+
+    const doesUserAlreadyExist = async (username) => {
+        return Boolean(await findUserByUsername(username));
+    };
+
+    const validateCredentials = async (req, res, next) => {
+
+        const { username, passwd } = req.body;
+
+        if (!isCredentialsStructureValid({username, passwd})
+            || !isPasswordStrongEnough(passwd)
+            || await doesUserAlreadyExist(username)
+        ) {
+            res.status(BAD_REQUEST).redirect(BAD_REGISTER_URL);
+        } else {
+            next();
+        }
+
+    };
+
+    return {
+        validateCredentials
     }
-
-    next();
-};
-
-module.exports = {
-    validatePasswordStrength
 };

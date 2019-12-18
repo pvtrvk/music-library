@@ -14,6 +14,9 @@ module.exports = (db) => {
         async findUser({login, passwd}) {
             const {userId} = await getUserId(login);
             return passwords.findOne({userId, passwd}, {projection: {_id: 0}});
+        },
+        async findUserByUsername(username) {
+            return users.findOne({username}, { projection: {_id: 0} });
         }
     }
 };

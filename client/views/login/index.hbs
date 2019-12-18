@@ -5,4 +5,4 @@
 
 {{> login/form}}
 <br/>
-<p style="color: red">{{message}}</p>
+<p style="color: {{#if isPositive}}green{{else}}red{{/if}}">{{message}}</p>
