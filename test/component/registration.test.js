@@ -15,7 +15,7 @@ describe('Registration component', async () => {
     it('should return BAD REQUEST status when given bad credentials', async () => {
         const login = 'BAD LOGIN',
             passwd = 'bad password';
-
+        
         await request
             .post(REGISTRATION_URL)
             .send({ login, passwd })
@@ -33,7 +33,7 @@ describe('Registration component', async () => {
             .send(credentials)
             .expect(BAD_REQUEST)
     });
-
+  
     it('should return CONFLICT status when user-to-be login already exists', async () => {
         const credentials = {
             login: 'NewUser',
