@@ -1,12 +1,18 @@
-const { REGISTER_URL } = require('../config/URLs');
-const { BAD_REQUEST } = require('http-status-codes');
+const { BAD_REQUEST, CONFLICT } = require('http-status-codes');
 const { isCredentialsStructureValid, isPasswordStrongEnough } = require('../validators/credentials.validator');
 
 module.exports = (db) => {
     const { findUserByUsername } = require('../repositories/users.repository')(db);
 
-    const doesUserAlreadyExist = async (username) => {
-        return Boolean(await findUserByUsername(username));
+    const doesUserAlreadyExist = async (req, res, next) => {
+        const { username } = req.body;
+        const doesExist = Boolean(await findUserByUsername(username));
+        if (doesExist) {
+            res.status(CONFLICT).render('register/index');
+            return;
+        }
+
+        next();
     };
 
     const validateCredentials = async (req, res, next) => {
@@ -15,7 +21,6 @@ module.exports = (db) => {
 
         if (!isCredentialsStructureValid({username, passwd})
             || !isPasswordStrongEnough(passwd)
-            || await doesUserAlreadyExist(username)
         ) {
             res.status(BAD_REQUEST).render('register/index');
         } else {
@@ -25,6 +30,7 @@ module.exports = (db) => {
     };
 
     return {
+        doesUserAlreadyExist,
         validateCredentials
     }
 };

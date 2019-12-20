@@ -2,30 +2,33 @@ const http = require('supertest');
 const { BAD_REQUEST, CONFLICT, OK } = require('http-status-codes');
 
 const REGISTRATION_URL = '/register';
-let request;
+let request, insertUserIntoDB, removeUserFromDB;
 
 describe('Registration component', async () => {
 
     beforeEach(async () => {
         const db = await require('../../server/database/connection')();
         const app = require('../../server/app')(db);
+        const services = require('../../server/services/login.services')(db);
         request = http(app);
+        insertUserIntoDB = services.insertUserIntoDB;
+        removeUserFromDB = services.removeUserFromDB;
     });
 
     it('should return BAD REQUEST status when given bad credentials', async () => {
-        const login = 'BAD LOGIN',
+        const username = 'BAD username',
             passwd = 'bad password';
 
         await request
             .post(REGISTRATION_URL)
-            .send({ login, passwd })
+            .send({ username, passwd })
             .set('Content-Type', 'application/json')
             .expect(BAD_REQUEST);
     });
 
     it('should return BAD REQUEST status when user-to-be password is too weak', async () => {
         const credentials = {
-            login: 'GoodLogin',
+            username: 'Goodusername',
             password: 'weakPassword'
         };
 
@@ -36,9 +39,9 @@ describe('Registration component', async () => {
             .expect(BAD_REQUEST)
     });
 
-    it('should return CONFLICT status when user-to-be login already exists', async () => {
+    it('should return CONFLICT status when user-to-be username already exists', async () => {
         const credentials = {
-            login: 'NewUser',
+            username: 'NewUser',
             passwd: 'SuperStrong12345'
         };
 
@@ -55,7 +58,8 @@ describe('Registration component', async () => {
 
     it('should return OK status when credentials meet requirements', async () => {
         const credentials = {
-
+            username: 'GoodUsername123',
+            passwd: 'StrongPass123'
         };
 
         await request

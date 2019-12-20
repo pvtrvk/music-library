@@ -15,16 +15,25 @@ const renderRegisterPage = (req, res, next) => {
     res.status(OK).render('register/index');
 };
 
-const registerUser = (req, res, next) => {
-    const {login, passwd} = req.body;
+module.exports = (db) => {
 
-    // await insertUserIntoDB({ login, passwd });
+    const { insertUserIntoDB } = require('../services/login.services')(db);
 
-    res.status(200).render('login/index', { message: 'User successfully created!', isPositive: true });
+    const registerUser = async (req, res, next) => {
+        const {login, passwd} = req.body;
+
+        await insertUserIntoDB({ login, passwd });
+
+        res.status(200).render('login/index', { message: 'User successfully created!', isPositive: true });
+    };
+
+    return {
+        registerUser,
+        renderLoginPage,
+        renderRegisterPage
+    };
 };
 
-module.exports = {
-    registerUser,
-    renderLoginPage,
-    renderRegisterPage
-};
+
+
+
