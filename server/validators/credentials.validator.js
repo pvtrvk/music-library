@@ -1,7 +1,7 @@
 const {isEmpty, isNullOrUndefined, isString} = require('../helpers/dataParsers');
 
 const doesContainOnlyAllowedChars = string =>
-    isString(string) && (/[A-Za-z0-9]/).test(string);
+    isString(string) && (/^([A-Za-z0-9])+$/).test(string);
 
 const isCredentialsStructureValid = ({username, passwd}) => {
     return !(isEmpty(username) || isEmpty(passwd) || isNullOrUndefined(username)
