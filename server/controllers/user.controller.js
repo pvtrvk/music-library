@@ -10,7 +10,7 @@ module.exports = (db) => {
 
             const areCredentialsValid = Boolean(await findUser({login, passwd}));
 
-            loginResponse({areCredentialsValid, login}, res);
+            loginResponse({areCredentialsValid, login}, res, next);
         }
     };
 };

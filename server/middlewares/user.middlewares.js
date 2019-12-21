@@ -8,10 +8,10 @@ const validateCredentialsSchema = async (req, res, next) => {
 
     if (!isCredentialsStructureValid({login, passwd})) {
         res.status(BAD_REQUEST).redirect(BAD_LOGIN_URL);
-        return;
+    } else {
+        next();
     }
 
-    next();
 };
 
 const isAdmin = (req, res, next) => {

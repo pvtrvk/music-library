@@ -9,10 +9,12 @@ module.exports = (db) => {
         const doesExist = Boolean(await findUserByUsername(username));
         if (doesExist) {
             res.status(CONFLICT).render('register/index');
-            return;
+            // const error = new Error('User does exist');
+            // error.statusCode = CONFLICT;
+            // next(CONFLICT);
+        } else {
+            next();
         }
-
-        next();
     };
 
     const validateCredentials = async (req, res, next) => {
