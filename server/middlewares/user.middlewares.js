@@ -1,15 +1,15 @@
 const {BAD_REQUEST, OK} = require('http-status-codes');
 const {BAD_LOGIN_URL} = require('../config/URLs');
 
-const {isCredentialsStructureValid} = require('../validators/credentials.validator');
+const {doesContainOnlyAllowedChars} = require('../validators/credentials.validator');
 
 const validateCredentialsSchema = async (req, res, next) => {
     const {login, passwd} = req.body;
 
-    if (!isCredentialsStructureValid({login, passwd})) {
-        res.status(BAD_REQUEST).redirect(BAD_LOGIN_URL);
-    } else {
+    if (doesContainOnlyAllowedChars(login) && doesContainOnlyAllowedChars(passwd)) {
         next();
+    } else {
+        res.status(BAD_REQUEST).redirect(BAD_LOGIN_URL);
     }
 
 };

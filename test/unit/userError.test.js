@@ -7,8 +7,12 @@ describe('User Error', () => {
         const errorOptions = {
             message: 'Bad credentials',
             statusCode: BAD_REQUEST
+        }, mockedRes = {
+            status: (code) => code,
+            render: (url) => url,
+            redirect: (url) => url
         };
-        const error = new UserError({}, errorOptions);
+        const error = new UserError(mockedRes, errorOptions);
         assert.deepStrictEqual(Object.keys(error), Object.keys(errorOptions));
     });
 });
