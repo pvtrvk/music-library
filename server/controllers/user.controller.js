@@ -6,11 +6,11 @@ module.exports = (db) => {
 
     return {
         async DBAuthentication(req, res, next) {
-            const {login, passwd} = req.body;
+            const {username, passwd} = req.body;
 
-            const areCredentialsValid = Boolean(await findUser({login, passwd}));
+            const areCredentialsValid = Boolean(await findUser({username, passwd}));
 
-            loginResponse({areCredentialsValid, login}, res, next);
+            loginResponse({areCredentialsValid, username}, res, next);
         }
     };
 };

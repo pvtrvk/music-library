@@ -4,9 +4,9 @@ const renderUserPage = ({login}, res) => {
     res.status(OK).render('user/index', {login});
 };
 
-const loginResponse = ({areCredentialsValid, login}, res, next) => {
+const loginResponse = ({areCredentialsValid, username}, res, next) => {
     if (areCredentialsValid) {
-        renderUserPage({login}, res);
+        renderUserPage({username}, res);
     } else {
         res.status(BAD_REQUEST).redirect('/login?b=-1');
     }

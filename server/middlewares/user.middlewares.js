@@ -4,9 +4,9 @@ const {BAD_LOGIN_URL} = require('../config/URLs');
 const {doesContainOnlyAllowedChars} = require('../validators/credentials.validator');
 
 const validateCredentialsSchema = async (req, res, next) => {
-    const {login, passwd} = req.body;
+    const {username, passwd} = req.body;
 
-    if (doesContainOnlyAllowedChars(login) && doesContainOnlyAllowedChars(passwd)) {
+    if (doesContainOnlyAllowedChars(username) && doesContainOnlyAllowedChars(passwd)) {
         next();
     } else {
         res.status(BAD_REQUEST).redirect(BAD_LOGIN_URL);
@@ -15,9 +15,9 @@ const validateCredentialsSchema = async (req, res, next) => {
 };
 
 const isAdmin = (req, res, next) => {
-    const {login, passwd} = req.body;
+    const {username, passwd} = req.body;
 
-    if (login === 'admin' && passwd === 'admin') {
+    if (username === 'admin' && passwd === 'admin') {
         res.status(OK).render('admin/index');
         return;
     }
