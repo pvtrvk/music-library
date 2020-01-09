@@ -27,6 +27,9 @@ img {
 }
 
 .left-bar {
+  background-color: rgba(233, 233, 233, 0.6);
+  padding: 10px;
+  transition: all 0.3s ease;
   position: absolute;
   left: 0;
   top: 0;
@@ -34,7 +37,10 @@ img {
   height: calc(100% - 20px);
   max-height: calc(100vh - 20px);
   max-width: 30px;
-  padding: 10px;
+  user-select: none;
+}
+.left-bar:hover {
+  background-color: white;
 }
 .left-bar__menu-icon-wrapper {
   display: flex;
@@ -54,7 +60,7 @@ img {
   font-family: "Baskervville", serif;
   letter-spacing: 1.4px;
   position: absolute;
-  left: -68px;
+  left: -78px;
   top: calc(100vh - 180px);
   width: 188px;
   transform: rotate(-90deg);
@@ -94,13 +100,16 @@ img {
 .slide__text-source {
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
+  margin-bottom: 0.3rem;
   padding: 0.4rem;
   display: inline-block;
 }
 .slide__text-heading a {
   background: white;
   padding: 1rem;
-  display: block;
+  display: inline-block;
+  max-width: 70vw;
+  width: auto;
   color: black;
   font-size: 3rem;
   font-weight: 300;

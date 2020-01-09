@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const {renderHomepage} = require('./controllers/homepage.controller');
 
 module.exports = (db) => {
 
+    const {renderHomepage} = require('./controllers/homepage.controller')(db);
     const {renderExplorePage} = require('./controllers/explore.controller')(db);
     const userRouter = require('./routers/user.router')(db);
     const loginRouter = require('./routers/login.router')(db);

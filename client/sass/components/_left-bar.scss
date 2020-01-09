@@ -1,4 +1,8 @@
 .left-bar {
+  background-color: rgba(233, 233, 233, 0.6);
+  padding: 10px;
+  transition: all .3s ease;
+
   position: absolute;
   left: 0;
   top: 0;
@@ -8,7 +12,11 @@
   max-height: calc(100vh - 20px);
   max-width: 30px;
 
-  padding: 10px;
+  user-select: none;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
 
   &__menu-icon-wrapper {
     display: flex;
@@ -34,7 +42,7 @@
     letter-spacing: 1.4px;
 
     position: absolute;
-    left: -68px;
+    left: -78px;
     top: calc(100vh - 180px);
 
     width: 188px;
