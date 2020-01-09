@@ -1,0 +1,43 @@
+.slider {
+
+  width: 100vw;
+  height: 100vh;
+
+  &-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  &__text-box {
+    font-family: $baskervville;
+    text-align: right;
+    padding: 5rem;
+  }
+
+  &__text-from {
+    font-size: 1.4rem;
+    letter-spacing: .1rem;
+  }
+
+  &__text-heading {
+    a {
+      color: $primary;
+      font-size: 3rem;
+      font-weight: 300;
+
+      text-decoration: none;
+    }
+  }
+}
