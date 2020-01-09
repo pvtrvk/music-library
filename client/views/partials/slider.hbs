@@ -1,5 +1,30 @@
 <div class="slider">
-    <div class="slider__element">
-        <!--        <img src="img/billie.jpg" alt="Billie" class="slider__image"/>-->
-    </div>
+    {{#each news}}
+        <div class="slide" style="background-image: url('{{image}}');">
+            <div class="slide__text-box">
+                <h4 class="slide__text-source">{{source}}</h4>
+                <h2 class="slide__text-heading"><a href="{{link}}">{{heading}}</a></h2>
+            </div>
+        </div>
+    {{/each}}
 </div>
+<script src="js/lib/siema.min.js"></script>
+<script>
+    const carousel = new Siema({
+        selector: '.slider',
+        duration: 400,
+        easing: 'ease-out',
+        perPage: 1,
+        startIndex: 0,
+        draggable: true,
+        multipleDrag: false,
+        threshold: 20,
+        loop: true,
+        rtl: false,
+        onInit: () => {
+            setInterval(() => carousel.next(), 4000);
+        },
+        onChange: () => {
+        },
+    });
+</script>

@@ -6,7 +6,7 @@
   width: 5%;
   height: calc(100% - 20px);
   max-height: calc(100vh - 20px);
-  max-width: 50px;
+  max-width: 30px;
 
   padding: 10px;
 
@@ -14,8 +14,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
 
-    padding-bottom: 5px;
+  &__menu-icon {
+    cursor: pointer;
+
+    max-width: 30px;
   }
 }
 
@@ -25,13 +29,13 @@
   }
 
   &-text {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-family: $baskervville;
     letter-spacing: 1.4px;
 
     position: absolute;
     left: -68px;
-    top: calc(100vh - 200px);
+    top: calc(100vh - 180px);
 
     width: 188px;
     transform: rotate(-90deg);

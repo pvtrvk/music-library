@@ -20,19 +20,37 @@
   justify-content: flex-end;
   align-items: flex-end;
 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__text-source {
+    background: white;
+  }
+
   &__text-box {
     font-family: $baskervville;
     text-align: right;
-    padding: 5rem;
+    margin: 5rem;
+
+    display: block;
   }
 
-  &__text-from {
+  &__text-source {
     font-size: 1.4rem;
     letter-spacing: .1rem;
+
+    padding: .4rem;
+    display: inline-block;
   }
 
   &__text-heading {
     a {
+      background: white;
+      padding: 1rem;
+
+      display: block;
+
       color: $primary;
       font-size: 3rem;
       font-weight: 300;
