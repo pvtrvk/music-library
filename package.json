@@ -5,7 +5,8 @@
     "css": "sass --watch client/sass/index.scss client/css/index.css",
     "test:unit": "mocha --exit test/unit",
     "test:component": "mocha --exit test/component",
-    "test": "npm-run-all test:*"
+    "test": "npm-run-all test:*",
+	"echo": "echo hej"
   },
   "devDependencies": {
     "jest": "^24.9.0",
